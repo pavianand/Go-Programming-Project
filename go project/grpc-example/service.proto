@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "/grpc_example"; // Specifying the Go package name
+
+service ItemService {
+    rpc AddItem(ItemRequest) returns (ItemResponse);
+    rpc GetItems(GetItemsRequest) returns (GetItemsResponse);
+}
+
+message ItemRequest {
+    string name = 1;
+}
+
+message ItemResponse {
+    string id = 1;
+    string name = 2;
+}
+
+message GetItemsRequest {}
+
+message GetItemsResponse {
+    repeated ItemResponse items = 1;
+}
